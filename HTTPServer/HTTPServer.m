@@ -586,10 +586,11 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 		netService = [[NSNetService alloc] initWithDomain:domain type:type name:name port:[asyncSocket localPort]];
 		[netService setDelegate:self];
 		
-		NSNetService *theNetService = netService;
+		__weak NSNetService *theNetService = netService;
 		NSData *txtRecordData = nil;
-		if (txtRecordDictionary)
+        if (txtRecordDictionary) {
 			txtRecordData = [NSNetService dataFromTXTRecordDictionary:txtRecordDictionary];
+        }
 		
 		dispatch_block_t bonjourBlock = ^{
 			

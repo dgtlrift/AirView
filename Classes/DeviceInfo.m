@@ -26,8 +26,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation DeviceInfo
 
-+ (NSString *)getSysInfoByName:(char *)typeSpecifier
-{
+- (NSString *)getSysInfoByName:(char *)typeSpecifier {
 	size_t size;
 	sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
 	char *answer = malloc(size);
@@ -37,46 +36,68 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	return results;
 }
 
-+ (NSString *)platform
-{
+- (NSString *)platform {
 	return [self getSysInfoByName:"hw.machine"];
 }
 
-+ (NSString *)deviceId
+- (NSData *)deviceIdBytes
 {
-	NSMutableString *res;
-	struct ifaddrs *addrs;
-	const struct ifaddrs *cursor;
-	const struct sockaddr_dl *dlAddr;
-	const uint8_t *base;
-	int i;
+    NSData *res;
+    struct ifaddrs *addrs;
+    const struct ifaddrs *cursor;
+    const struct sockaddr_dl *dlAddr;
+    const uint8_t *base;
+    
+    if (getifaddrs(&addrs) != 0) {
+        NSLog(@"[DeviceInfo] getifaddrs failed");
+        return nil;
+    }
+    
+    res = nil;
+    
+    for (cursor = addrs; cursor != NULL; cursor = cursor->ifa_next) {
+        if ((cursor->ifa_addr->sa_family == AF_LINK) &&
+            (((const struct sockaddr_dl *) cursor->ifa_addr)->sdl_type == IFT_ETHER)) {
+            
+            dlAddr = (const struct sockaddr_dl *) cursor->ifa_addr;
+            base = (const uint8_t *) &dlAddr->sdl_data[dlAddr->sdl_nlen];
+            res = [NSData dataWithBytes:base length:dlAddr->sdl_alen];
+            break;
+        }
+    }
+    
+    freeifaddrs(addrs);
+    return res;
+}
 
-	if (getifaddrs(&addrs) != 0) {
-		DDLogError(@"getifaddrs failed");
-		return nil;
-	}
+- (NSString *)deviceIdWithSeparator:(NSString *)separator
+{
+    NSMutableString *res;
+    NSData *data;
+    const uint8_t *bytes;
+    
+    data = [self deviceIdBytes];
+    if (data == nil)
+        return nil;
+    
+    bytes = [data bytes];
+    
+    res = [NSMutableString stringWithCapacity:32];
+    for (int i = 0; i < [data length]; i++) {
+        if (separator != nil && i != 0)
+            [res appendString:separator];
+        [res appendFormat:@"%02X", bytes[i]];
+    }
+    
+    return res;
+}
 
-	res = nil;
-	cursor = addrs;
-	while (cursor != NULL) {
-		if ((cursor->ifa_addr->sa_family == AF_LINK) &&
-			(((const struct sockaddr_dl *) cursor->ifa_addr)->sdl_type == IFT_ETHER)) {
-			dlAddr = (const struct sockaddr_dl *) cursor->ifa_addr;
-			base = (const uint8_t *) &dlAddr->sdl_data[dlAddr->sdl_nlen];
-			res = [NSMutableString stringWithCapacity:32];
-			for (i = 0; i < dlAddr->sdl_alen; i++) {
-				if (i != 0)
-					[res appendString:@":"];
-				[res appendFormat:@"%02X", base[i]];
-			}
-			goto out;
-		}
-		cursor = cursor->ifa_next;
-	}
+- (NSString *)deviceId {
+    return [self deviceIdWithSeparator:@":"];
+}
 
-out:
-	freeifaddrs(addrs);
-	return res;
+- (NSString *)deviceName {
+    return [[UIDevice currentDevice] name];
 }
 
 @end

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AirPlayController.h"
+#import "AirViewController.h"
 
 @interface AirViewAppDelegate : NSObject <UIApplicationDelegate> {
 	UIWindow *window;
-	AirPlayController *airplay;
+	AirViewController *airplay;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

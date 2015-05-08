@@ -12,8 +12,11 @@
 
 }
 
-+ (NSString *)getSysInfoByName:(char *)typeSpecifier;
-+ (NSString *)platform;
-+ (NSString *)deviceId;
+- (NSString *)getSysInfoByName:(char *)typeSpecifier;
+- (NSString *)platform;
+- (NSData *)deviceIdBytes;
+- (NSString *)deviceIdWithSeparator:(NSString *)separator;
+- (NSString *)deviceId;
+- (NSString *)deviceName;
 
 @end
