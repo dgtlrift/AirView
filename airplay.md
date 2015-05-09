@@ -22,6 +22,10 @@ https://github.com/leogps/Raspberry-Pi-Airplay
 
 fp-setup: http://stackoverflow.com/questions/25441915/how-to-start-2-services-at-different-ports-using-jmdns
 
+# !!! FP AES KEY DECRYPTION !!! :
+
+git@github.com:espes/Slave-in-the-Magic-Mirror.git
+
 #AirTunes 2 protocol reference:
 
 http://git.zx2c4.com/Airtunes2/about/
