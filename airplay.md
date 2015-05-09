@@ -20,11 +20,21 @@ https://github.com/joshaber/MacShairport
 https://github.com/pentateu/DroidAirPlay
 https://github.com/leogps/Raspberry-Pi-Airplay
 
-fp-setup: http://stackoverflow.com/questions/25441915/how-to-start-2-services-at-different-ports-using-jmdns
+fp-setup responses:
+http://stackoverflow.com/questions/25441915/how-to-start-2-services-at-different-ports-using-jmdns
+
+https://github.com/cjie/airplay-zhcn/blob/master/AirPlay.html
+http://blog.cdi76.com/2013/03/jailbreak-turn-your-iphone-ipad-or-ipod.html
+http://appadvice.com/appnn/2010/11/jailbreak-turn-iphone-ipad-airplay-speakers
+http://www.idownloadblog.com/2011/01/20/the-best-of-airplay-getting-the-most-from-streaming/
+http://www.machoe.com/7291/airtunesd.html
+http://forum.kodi.tv/archive/index.php?thread-179961-14.html (http://forum.kodi.tv/showthread.php?tid=179961&page=14)
 
 # !!! FP AES KEY DECRYPTION !!! :
 
 git@github.com:espes/Slave-in-the-Magic-Mirror.git
+fixed fork:
+https://github.com/Przytua/Slave-in-the-Magic-Mirror
 
 #AirTunes 2 protocol reference:
 
