@@ -31,9 +31,9 @@
     int videoVolumeControl = 0;
     int videoHTTPLiveStreams = 0;
     int slideshow = 0;
-    int screen = 0;
+    int screen = 1;
     int screenRotate = 0;
-    int audio = 0;
+    int audio = 1;
     int audioRedundant = 0;
     int FPSAPv2pt5_AES_GCM = 0;
     int photoCaching = 0;

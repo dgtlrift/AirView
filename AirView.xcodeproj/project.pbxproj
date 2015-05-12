@@ -90,6 +90,7 @@
 		5C6B1B2D1AFCEBAB0078740E /* fairplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B1B2B1AFCEBAB0078740E /* fairplay.c */; };
 		5CA762F91B02141D0097BF1B /* airtunesd_wrapper.c in Sources */ = {isa = PBXBuildFile; fileRef = 5CA762F71B02141D0097BF1B /* airtunesd_wrapper.c */; };
 		5CA762FB1B0214440097BF1B /* airtunesd in Resources */ = {isa = PBXBuildFile; fileRef = 5CA762FA1B0214440097BF1B /* airtunesd */; };
+		5CA763011B022C4C0097BF1B /* print_data.c in Sources */ = {isa = PBXBuildFile; fileRef = 5CA762FF1B022C4C0097BF1B /* print_data.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -316,6 +317,8 @@
 		5CA762F71B02141D0097BF1B /* airtunesd_wrapper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = airtunesd_wrapper.c; sourceTree = "<group>"; };
 		5CA762F81B02141D0097BF1B /* airtunesd_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = airtunesd_wrapper.h; sourceTree = "<group>"; };
 		5CA762FA1B0214440097BF1B /* airtunesd */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = airtunesd; sourceTree = "<group>"; };
+		5CA762FF1B022C4C0097BF1B /* print_data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = print_data.c; sourceTree = "<group>"; };
+		5CA763001B022C4C0097BF1B /* print_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = print_data.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,6 +644,8 @@
 				5C6B18AA1AFCC3020078740E /* webtools.h */,
 				5C6B18AB1AFCC3020078740E /* zeroconf.h */,
 				5C6B18AC1AFCC3020078740E /* zeroconf_apple.c */,
+				5CA762FF1B022C4C0097BF1B /* print_data.c */,
+				5CA763001B022C4C0097BF1B /* print_data.h */,
 			);
 			path = libairfloat;
 			sourceTree = "<group>";
@@ -854,6 +859,7 @@
 				5C6B19151AFCC3020078740E /* webrequest.c in Sources */,
 				28CF3DA212BD651C0019F443 /* DDData.m in Sources */,
 				5C6B19071AFCC3020078740E /* hardware_apple.c in Sources */,
+				5CA763011B022C4C0097BF1B /* print_data.c in Sources */,
 				28CF3DA312BD651C0019F443 /* DDNumber.m in Sources */,
 				28CF3DA412BD651C0019F443 /* DDRange.m in Sources */,
 				5C6B19131AFCC3020078740E /* webclientconnection.c in Sources */,

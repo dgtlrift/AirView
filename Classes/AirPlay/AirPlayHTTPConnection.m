@@ -33,7 +33,7 @@
 }
 
 - (NSDictionary *)supportedPOSTEndpoints {
-    NSMutableDictionary *dict = [[super supportedGETEndpoints] mutableCopy];
+    NSMutableDictionary *dict = [[super supportedPOSTEndpoints] mutableCopy];
     if (dict == nil) {
         dict = [[NSMutableDictionary alloc] init];
     }
@@ -51,7 +51,7 @@
 }
 
 - (NSDictionary *)supportedPUTEndpoints {
-    NSMutableDictionary *dict = [[super supportedGETEndpoints] mutableCopy];
+    NSMutableDictionary *dict = [[super supportedPUTEndpoints] mutableCopy];
     if (dict == nil) {
         dict = [[NSMutableDictionary alloc] init];
     }

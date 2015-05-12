@@ -14,6 +14,7 @@
 #import "HTTPLogging.h"
 #import "AirViewHTTPConfig.h"
 #import "AirViewServerInfo.h"
+#import "airtunesd_wrapper.h"
 
 const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE;
 
@@ -124,7 +125,28 @@ const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE;
 
 - (id<HTTPResponse>)POST_fpSetup {
     HTTPLogVerbose(@"%@[%p]: POST (%qu) %@\n", THIS_FILE, self, requestContentLength, @"/fp-setup");
-    return [[HTTPDataResponse alloc] initWithData:nil];
+    
+    NSData *content = [request body];
+    
+    uint8_t fply_header[12];
+    [content getBytes:fply_header length:sizeof(fply_header)];
+    
+    uint8_t data[content.length];
+    memset(data, 0, content.length);
+    [content getBytes:data length:content.length];
+    
+    _print_data(data, content.length);
+    
+    NSLog(@".");
+    uint8_t *response_data;
+    response_data = getChallengeResponse(data);
+    
+    int response_length = ((fply_header[6] == 1) ? 142 : 32);
+    
+    _print_data(response_data, response_length);
+    
+    
+    return [[HTTPDataResponse alloc] initWithData:[NSData dataWithBytesNoCopy:response_data length:response_length freeWhenDone:NO]];
 }
 
 @end

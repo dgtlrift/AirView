@@ -23,6 +23,18 @@
     return dict;
 }
 
+- (NSDictionary *)supportedPOSTEndpoints {
+    NSMutableDictionary *dict = [[super supportedPOSTEndpoints] mutableCopy];
+    if (dict == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }
+    [dict addEntriesFromDictionary:@{
+                                     @"/stream": @"stream",
+                                     }];
+    NSLog(@"%@", dict);
+    return dict;
+}
+
 - (id)GET_streamPlist {
     UIScreen *screen = [UIScreen mainScreen];
     NSDictionary *dict = @{
@@ -38,6 +50,10 @@
     HTTPDataResponse *res = [[HTTPDataResponse alloc] initWithData:response];
     [res setHttpHeaderValue:@"text/x-apple-plist+xml" forKey:@"Content-Type"];
     return res;
+}
+
+- (id)POST_stream {
+    return [[HTTPDataResponse alloc] initWithData:nil];
 }
 
 @end
