@@ -88,6 +88,8 @@
 		5C6B191A1AFCC3020078740E /* zeroconf_apple.c in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B18AC1AFCC3020078740E /* zeroconf_apple.c */; };
 		5C6B191B1AFCC3020078740E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6B18B01AFCC3020078740E /* libcrypto.a */; };
 		5C6B1B2D1AFCEBAB0078740E /* fairplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B1B2B1AFCEBAB0078740E /* fairplay.c */; };
+		5CA762F91B02141D0097BF1B /* airtunesd_wrapper.c in Sources */ = {isa = PBXBuildFile; fileRef = 5CA762F71B02141D0097BF1B /* airtunesd_wrapper.c */; };
+		5CA762FB1B0214440097BF1B /* airtunesd in Resources */ = {isa = PBXBuildFile; fileRef = 5CA762FA1B0214440097BF1B /* airtunesd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -311,6 +313,9 @@
 		5C6B18F81AFCC3020078740E /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
 		5C6B1B2B1AFCEBAB0078740E /* fairplay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fairplay.c; sourceTree = "<group>"; };
 		5C6B1B2C1AFCEBAB0078740E /* fairplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fairplay.h; sourceTree = "<group>"; };
+		5CA762F71B02141D0097BF1B /* airtunesd_wrapper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = airtunesd_wrapper.c; sourceTree = "<group>"; };
+		5CA762F81B02141D0097BF1B /* airtunesd_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = airtunesd_wrapper.h; sourceTree = "<group>"; };
+		5CA762FA1B0214440097BF1B /* airtunesd */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = airtunesd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +341,7 @@
 		2830270012BD3AFD00247F8C = {
 			isa = PBXGroup;
 			children = (
+				5CA762F61B0213C70097BF1B /* airtunesd */,
 				5C6B186A1AFCC3020078740E /* libairfloat */,
 				28CF3D6912BD63540019F443 /* Logger */,
 				28CF3DA512BD65570019F443 /* TCP */,
@@ -717,6 +723,16 @@
 			path = openssl;
 			sourceTree = "<group>";
 		};
+		5CA762F61B0213C70097BF1B /* airtunesd */ = {
+			isa = PBXGroup;
+			children = (
+				5CA762FA1B0214440097BF1B /* airtunesd */,
+				5CA762F71B02141D0097BF1B /* airtunesd_wrapper.c */,
+				5CA762F81B02141D0097BF1B /* airtunesd_wrapper.h */,
+			);
+			path = airtunesd;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -774,6 +790,7 @@
 			files = (
 				2830271E12BD3AFD00247F8C /* InfoPlist.strings in Resources */,
 				2830272612BD3AFD00247F8C /* MainWindow_iPhone.xib in Resources */,
+				5CA762FB1B0214440097BF1B /* airtunesd in Resources */,
 				2830272912BD3AFD00247F8C /* MainWindow_iPad.xib in Resources */,
 				2847E88412CAB22E00AED054 /* AirView iPad Icon.png in Resources */,
 				2847E88512CAB22E00AED054 /* AirView iPhone Icon.png in Resources */,
@@ -853,6 +870,7 @@
 				5C6B18FC1AFCC3020078740E /* alac_format.c in Sources */,
 				28C26DDE12C19C4500209D7E /* DeviceInfo.m in Sources */,
 				5C6B18FE1AFCC3020078740E /* audioqueue.c in Sources */,
+				5CA762F91B02141D0097BF1B /* airtunesd_wrapper.c in Sources */,
 				2812AD2912C40DA000E4564B /* HTTPReverseResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -909,7 +927,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lukasz Przytula (RU498ATPN7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -977,7 +995,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lukasz Przytula (RU498ATPN7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1000,7 +1018,7 @@
 					/Users/przytua/git/AirFloat/libairfloat,
 					"$(PROJECT_DIR)/libairfloat",
 				);
-				OTHER_CFLAGS = "-DLOG_SERVER";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1012,7 +1030,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lukasz Przytula (RU498ATPN7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1063,7 +1081,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lukasz Przytula (RU498ATPN7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (

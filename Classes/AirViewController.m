@@ -13,6 +13,7 @@
 #import "dacpclient.h"
 #import "raopsession.h"
 #import "AirViewServerInfo.h"
+#import "airtunesd_wrapper.h"
 
 // Log levels: off, error, warn, info, verbose
 static const int ddLogLevel = LOG_LEVEL_INFO;
@@ -24,6 +25,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
         window = uiWindow;
 
 		DDLogVerbose(@"AirPlayController: init");
+        
+        loadAirtunesd();
         
         struct raop_server_settings_t settings;
         settings.name = [[[DeviceInfo new] deviceName] cStringUsingEncoding:NSUTF8StringEncoding];
