@@ -26,17 +26,19 @@
 
 - (NSUInteger)features {
     int video = 1;
-    int photo = 0;
-    int videoFairPlay = 0;
+    int photo = 1;
+    int videoFairPlay = 1;
     int videoVolumeControl = 0;
-    int videoHTTPLiveStreams = 0;
-    int slideshow = 0;
+    int videoHTTPLiveStreams = 1;
+    int slideshow = 1;
     int screen = 1;
-    int screenRotate = 0;
+    int screenRotate = 1;
     int audio = 1;
     int audioRedundant = 0;
     int FPSAPv2pt5_AES_GCM = 0;
-    int photoCaching = 0;
+    int photoCaching = 1;
+    int unknown1 = 1;
+    int unknown2 = 1;
     
     return
     video                   << 0 |
@@ -50,7 +52,9 @@
     audio                   << 8 |
     audioRedundant          << 9 |
     FPSAPv2pt5_AES_GCM      << 10 |
-    photoCaching            << 11;
+    photoCaching            << 11 |
+    unknown1                << 12 |
+    unknown2                << 13;
 }
 
 - (NSString *)featuresHex {
@@ -63,7 +67,8 @@
 
 - (NSString *)srcvers {
 //    return @"104.29";
-    return @"130.14";
+    return @"120.2";
+//    return @"130.14";
 //    return @"150.33";
 }
 

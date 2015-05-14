@@ -13,6 +13,8 @@
 #import "AirViewAppDelegate.h"
 #import "AirViewController.h"
 
+#import "airtunesd_wrapper.h"
+
 // Log levels: off, error, warn, info, verbose
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -21,7 +23,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    loadAirtunesd();
+    
 	// Configure our logging framework.
 	[DDLog addLogger:[DDTTYLogger sharedInstance]];
 	[DDLog addLogger:[DDASLLogger sharedInstance]];

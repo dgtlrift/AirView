@@ -26,8 +26,6 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 		DDLogVerbose(@"AirPlayController: init");
         
-        loadAirtunesd();
-        
         struct raop_server_settings_t settings;
         settings.name = [[[DeviceInfo new] deviceName] cStringUsingEncoding:NSUTF8StringEncoding];
         settings.password = NULL;

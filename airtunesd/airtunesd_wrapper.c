@@ -38,15 +38,15 @@ char *aitrtunesdPath() {
 }
 
 void loadAirtunesd() {
-    char *lib_path = aitrtunesdPath();
-    void *lib = dlopen(lib_path, RTLD_NOW);
-
-    if (!lib) {
-        printf("%s\n", dlerror());
-    }
+//    char *lib_path = aitrtunesdPath();
+//    void *lib = dlopen(lib_path, RTLD_LAZY);
+//
+//    if (!lib) {
+//        printf("%s\n", dlerror());
+//    }
     
     int airtunesd_index = retrieveAirtunesdIndex();
-    printf("%i\n", airtunesd_index);
+    printf("airtunesd index %i\n", airtunesd_index);
     
     const struct mach_header *airtunesd_header = _dyld_get_image_header(airtunesd_index);
     printf("%p\n", airtunesd_header);

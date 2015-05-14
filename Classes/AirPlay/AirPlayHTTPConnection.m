@@ -77,7 +77,7 @@
         NSLog(@"GET /scrub data: %@", str);
         NSData *response = [str dataUsingEncoding:NSUTF8StringEncoding];
         HTTPDataResponse *res = [[HTTPDataResponse alloc] initWithData:response];
-        [res setHttpHeaderValue:@"text/parameters" forKey:@"Content-Type"];
+        [res.httpHeaders setValue:@"text/parameters" forKey:@"Content-Type"];
         return res;
     }
     
