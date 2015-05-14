@@ -1,3 +1,6 @@
 [submodule "libairfloat"]
 	path = libairfloat
 	url = git@github.com:Przytua/libairfloat.git
+[submodule "CocoaAsyncSocket"]
+	path = CocoaAsyncSocket
+	url = git@github.com:robbiehanson/CocoaAsyncSocket.git
