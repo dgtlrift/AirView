@@ -36,7 +36,7 @@ jobs:
         env:
           DEVELOPER_DIR: ${{ matrix.xcode }}
       - name: Build and test
-        run: bundle exec fastlane scan --destination "${destination}" --scheme "YOUR_APP_SCHEME"
+        run: bundle exec fastlane scan --destination "${destination}" --scheme "AirView"
         env:
           destination: ${{ matrix.destination }}
           DEVELOPER_DIR: ${{ matrix.xcode }}
