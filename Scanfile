@@ -1,0 +1,6 @@
+scheme("AirView")
+devices(["iPhone 6s", "iPad Air"])
+
+clean(true)
+
+output_types("html")
