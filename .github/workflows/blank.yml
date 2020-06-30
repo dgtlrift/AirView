@@ -48,8 +48,8 @@ jobs:
           path: YouAppTests/FailureDiffs
       - name: Releasing
         run: bundle exec fastlane release
-       # env:
-         # DEVELOPER_DIR: ${{ matrix.xcode }}
+        env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
          # ...
-         # YOUR_ENVIRONMENT_VARIABLES_HERE: ${{ secret.XXX }}
+          YOUR_ENVIRONMENT_VARIABLES_HERE: ${{ secret.XXX }}
          # ...
