@@ -1,2 +1,2 @@
 
-workspace 'AirView.xcodeproj'
+workspace 'AirView'
